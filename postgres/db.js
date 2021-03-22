@@ -1,4 +1,5 @@
 const {Sequelize} = require('sequelize');
+const { host, user, password, database, dialect } = require("./config.js");
 
 const test_connection = async ()=>{
     const sequelize = db_connection();
@@ -12,9 +13,9 @@ const test_connection = async ()=>{
 }
 
 const db_connection = ()=>{
-    return new Sequelize('postgres',"postgres"," ", {
-        host: 'localhost',
-        dialect: 'postgres',
+    return new Sequelize(database ,user,password, {
+        host: host,
+        dialect: dialect,
     });
 }
 
