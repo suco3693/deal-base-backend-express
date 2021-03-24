@@ -6,6 +6,11 @@ const sequelize = db_connection();
 class User extends Model{}
 
 User.init({
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+    },
     first_name :{
         type: DataTypes.STRING,
         defaultValue: null,
@@ -20,7 +25,8 @@ User.init({
     },
     email: {
         type: DataTypes.STRING,
-        defaultValue: null,
+        allowNull: false,
+        unique: true,
     },
     phone: {
         type: DataTypes.STRING,
